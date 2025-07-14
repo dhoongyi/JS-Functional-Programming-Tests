@@ -1,0 +1,21 @@
+<html>
+    <script>
+        function add(x,y)  // x y are parameter 
+        {
+            console.log("x ",x, "y ",y);
+            return x + y;
+        }
+
+        let result = add(20,40); // 20 40 are argument
+        console.log("result", result);
+
+        // default parameter 
+        function greeting(message = "Hello")
+        {
+            console.log("Greet", message);
+        }
+
+        greeting();
+        greeting("Sawade khap");
+    </script>
+</html>

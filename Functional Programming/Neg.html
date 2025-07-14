@@ -1,0 +1,19 @@
+<html>
+    <script>
+        let arr = [1,2,3,4,5];
+        const isEven = (x) => x % 2 == 0;
+
+        let evenList = arr.filter(isEven);
+
+        function not(fn){
+            return function(...rest){
+                return !fn(...rest);
+            }
+        }
+
+        const isOdd = not(isEven);
+        let oddList = arr.filter(isOdd);
+        console.log("Even List", evenList);
+        console.log("Odd List", oddList);
+    </script>
+</html>

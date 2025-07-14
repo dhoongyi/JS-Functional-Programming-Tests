@@ -1,0 +1,27 @@
+<html>
+    <script>
+        let obj = {
+            value : 100,
+            display(message){
+                console.log(this);
+                console.log("message", message);
+                console.log("Value",this.value);
+            }
+        }
+
+        let m = obj.display;
+        console.log("typeof m", typeof m);
+        // m();
+        m.call(obj,"Hello");
+
+        let obj2 = {
+            value : 200
+        }
+
+        m.call(obj2,"World");
+
+        // If you want to pass parameter as a array , use apply
+        m.apply(obj2,["Hello"]);
+        
+    </script>
+</html>

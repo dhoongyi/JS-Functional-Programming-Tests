@@ -1,0 +1,40 @@
+<html>
+    <script>
+        let obj = {
+
+        };
+
+        console.log('!!obj', !!obj);
+        console.log('obj to string', obj+"");
+        console.log('obj.toString()', obj.toString());
+        console.log('+obj', +obj);
+
+        obj = {
+
+            toString(){
+                console.log("toString invoked");
+                return "3";
+            },
+
+            valueOf(){
+                console.log("Value of invoked");
+                return {};
+            }
+        }
+        console.log("-------------------------");
+        console.log("!!obj", !!obj);
+        console.log("obj+''", obj+'');
+        console.log('+obj', +obj);
+
+        // Date object မှာ toString က Piority ပိုမြင့်တယ်
+        // အခြား object မှာ valueOf က ပိုမြင့်တယ် Return type must be primitive 
+
+
+        /*
+        if valueOf()
+            if toString()
+                if primitive
+                    convert
+        */
+    </script>
+</html>

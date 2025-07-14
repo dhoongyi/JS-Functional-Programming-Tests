@@ -1,0 +1,13 @@
+<html>
+    <script>
+        let arr = [1,2,3,4,5];
+
+        const isEven = x => x % 2 === 0;
+
+        let arr2 = arr.reduce((result,item)=>{
+            return isEven(item) ? [...result,item] : result;
+        },[]);
+
+        console.log("arr2", arr2);
+    </script>
+</html>

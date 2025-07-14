@@ -1,0 +1,29 @@
+<html>
+    <script src="./funlib.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.0/ramda.min.js"></script>
+
+    <script>
+        const Sum = {
+            binaryOp : (a,b) => a + b,
+            identity : () => 0
+        }
+
+        const Min =  {
+            binaryOp : (a,b) => a < b ? a : b,
+            identity : () => Number.MAX_VALUE,
+        }
+
+        function fold(arr, monoid)
+        {
+            return arr.reduce(monoid.binaryOp, monoid.identity());
+
+        }
+
+        let arr = [10, 20, 3,4];
+        let min = fold(arr, Min);
+        console.log("Min ", min);
+
+        let total = fold(arr, Sum);
+        console.log("total ", total);
+    </script>
+</html>

@@ -1,0 +1,33 @@
+<html>
+    <script src="./funlib.js"></script>
+    <script>
+        function add(x,y){
+            return x + y;
+        }
+
+        function curry(fn){
+            return fn.length == 1 ? fn : function(x){
+                return curry(fn.bind(null,x));
+            }
+        }
+
+        let addCur = curry(add);
+        let addOne = addCur(1);  // partial application 
+        console.log("add One", addOne);
+
+        console.log("addCur", addCur(2));
+        console.log("addCur", addCur(4)(5));
+
+        function compose(...fns)
+        {
+            console.log(...fns);
+            return function(x){
+                return fns.reduceRight((input,fn)=>fn(input),x);
+            }
+        }
+
+        let double = (x) => x * 2;
+        let composeFun = compose(double,addCur(2));
+        console.log(composeFun(20));
+    </script>
+</html>

@@ -1,0 +1,30 @@
+<html>
+    <script> 
+        const appendHi = (x) => x + "Hi";
+        const toUpper = (x) => x.toUpperCase();
+
+        function appendHiAndToUpper(x){
+            return toUpper(appendHi(x));
+        }
+
+        // Imperative Way
+        console.log("Append Hi and to Upper", appendHiAndToUpper("Hello"));
+
+
+        //Functional Programming Way 
+        function compose(funA,funB){
+            return function(x){
+                return funA(funB(x));
+            }
+        }
+
+        let newFun = compose(toUpper,appendHi);
+        console.log("New Fun", newFun("Hello"));
+
+        let incOne = (x) => x +1 ;
+        let double = (x) => x * 2;
+
+        newFun = compose(double,incOne);
+        console.log(newFun(3));
+    </script>
+</html>

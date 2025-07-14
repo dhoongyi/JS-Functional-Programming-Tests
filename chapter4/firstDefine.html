@@ -1,0 +1,17 @@
+<html>
+    <script>
+        let obj = {
+            name : "TK",
+            address : "Somewhere",
+            age : 0
+        }
+
+        // let address = obj.address || "Default";
+        let address = obj.address ?? "Default";
+        console.log("Address", address);
+
+        // let age = obj.age || 20;
+        let age = obj.age ?? 20;
+        console.log("Age",age);  // not ok with Or Operator 
+    </script>
+</html>

@@ -1,0 +1,92 @@
+<html>
+    <script>
+        let students = [
+            {
+                name : "Aung Aung",
+                age : 20,
+                gender : "Male",
+                address : "YGN"
+            },
+            {
+                name : "Maung Maung",
+                age : 32,
+                gender : "Male",
+                address : "MDY"
+            },
+            {
+                name : "Hla Hal",
+                age : 40,
+                gender : "Female",
+                address : "BGO"
+            },
+            {
+                name : "Tin Mya",
+                age : 30,
+                gender : "Male",
+                address : "YGN"
+            },
+            {
+                name : "Win Aung",
+                age : 50,
+                gender : "Male",
+                address : "BGO"
+            },
+            {
+                name : "Khin Khin",
+                age : 32,
+                gender : "Female",
+                address : "MDY"
+            },
+            {
+                name : "Aye Mya",
+                age : 30,
+                gender : "Female",
+                address : "PKU"
+            }
+        ];
+
+        /* let group = {};
+
+        for(const student of students){
+            if(!group[student.gender]){
+                group[student.gender] = [student];
+            }else{
+                group[student.gender].push(student);
+            }
+        }
+
+        console.log("Group", group);
+        */
+
+
+        /*
+            Requirements 
+            {
+                "Male" : [student1,student2],
+                "Female" : [student3,student4]
+            }
+        */
+        function group(arr)
+        {
+            let group = students.reduce((group, stud)=>{
+                if(!group[stud.gender]){
+                    return {
+                        ...group,
+                        [stud.gender] : [stud]
+                    }
+                }
+                else{
+                    return {
+                        ...group,
+                        [stud.gender] : [...group[stud.gender],stud]
+                    }
+                }
+            },{});
+
+            return group;
+        };
+
+        console.log(group(students));
+
+    </script>
+</html>

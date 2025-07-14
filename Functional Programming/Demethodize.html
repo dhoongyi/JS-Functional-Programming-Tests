@@ -1,0 +1,18 @@
+<html>
+    <script>
+        let arr = [1,2,3,4,5];
+
+        let arr2 = arr.map((x)=> x *2);
+        console.log(arr2);
+
+        function demethodize(fn){
+            return function(obj,...rest){
+                return fn.call(obj,...rest);
+            }
+        }
+
+        let map = demethodize(Array.prototype.map);
+        let arr3 = map(arr,(x)=> x *2);
+        console.log("arr3", arr3);
+    </script>
+</html>

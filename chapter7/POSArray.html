@@ -1,0 +1,34 @@
+<html>
+    <p id="result"></p>
+    <script>
+        let items = [
+            {
+                name : "apple",
+                price : 100,
+                quantity : 2
+            },
+            {
+                name : "orange",
+                price : 200,
+                quantity : 300
+            },
+            {
+                name : "banana",
+                price : 200,
+                quantity : 200
+            }
+        ];
+
+        let str = "";
+        for(const item of items){
+            str += `Name = ${item.name} <br/> Price = ${item.price} <br> Quantity = ${item.quantity} <br> Total = ${item.price * item.quantity} <br>`;
+            
+        }
+        document.getElementById('result').innerHTML = str;
+
+        let total = items.map(item => item.price * item.quantity);
+        let name = items.map(item=> item.name);
+        console.log('total', total);
+        console.log('name', name);
+    </script>
+</html>

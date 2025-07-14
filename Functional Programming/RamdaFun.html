@@ -1,0 +1,15 @@
+<html>
+    <script src="./funlib.js"></script>
+    <script>
+        function has(porperty, obj)
+        {
+            return porperty in obj;
+        }
+
+        let R = {};
+        let curriedHas = curry(has);
+        R.has = curriedHas;
+        console.log("R.has ", R.has('name')({name : "John"}));
+        console.log("R.has ", R.has('age')({name : "John"}));
+    </script>
+</html>

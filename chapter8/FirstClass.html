@@ -1,0 +1,35 @@
+<html>
+    <script>
+        /*
+            *** Function As Value ***
+            rule 1 = can access to variable
+            rule 2 = can return a function from a function
+            rule 3 = can pass a function as a parameter 
+            First Class
+        */
+
+        function hello()
+        {
+            console.log("Hello");
+        }
+        let fun = hello; // Rule 1
+        fun();
+
+        function getFun()
+        {
+            return function(){
+                console.log("Retrun from a function");
+            }
+        }
+        fun = getFun();
+        fun();
+
+        function accessFun(fn)
+        {
+            console.log("Accept Function");
+            fn();
+        }
+
+        accessFun(fun);
+    </script>
+</html>

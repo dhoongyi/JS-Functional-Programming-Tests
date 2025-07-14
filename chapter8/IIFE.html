@@ -1,0 +1,22 @@
+<html>
+    <script>
+        (function Module(){
+            console.log("Immediately Invoking Function Expression");
+            return {
+
+            }
+        })();
+
+        function hello(str)
+        {
+            console.log("Arguments.length", arguments.length);
+            console.log("str", str);
+        }
+
+        console.log("Hello.lenght", hello.length);
+        console.log("Hello.name", hello.name);
+        hello("Hello","Hi");
+
+        console.log("hello.toString", hello.toString());
+    </script>
+</html>

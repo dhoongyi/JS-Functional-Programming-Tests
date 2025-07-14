@@ -1,0 +1,22 @@
+<html>
+    <script>
+        function greet(message){
+            console.log("Hello", message);
+        }
+        function funCheck(fn){
+            return function(...rest){
+                if(fn.length != rest.length){
+                    console.warn("Function", fn.name ,"expected", fn.length, "but found", rest.length);
+                }
+                return fn(...rest);
+            }
+
+        }
+
+        greet = funCheck(greet);
+
+        greet("foo");
+        greet();
+        greet("foo","bar");
+    </script>
+</html>

@@ -1,0 +1,38 @@
+<html>
+    <script> 
+        const appendHi = (x) => x + "Hi";
+        const toUpper = (x) => x.toUpperCase();
+        const appendGreet = (x) => x + "Greet";
+
+        function appendHiAndToUpper(x){
+            return toUpper(appendHi(x));
+        }
+
+        // Imperative Way
+        console.log("Append Hi and to Upper", appendHiAndToUpper("Hello"));
+
+
+        //Functional Programming Way 
+        function compose(...fns){
+            return function(x){
+                return fns.reduceRight((input,fn) => fn(input), x);
+            }
+        }
+
+        let newFun = compose(toUpper,appendHi,appendGreet);
+        console.log("NewFUn", newFun("Hello"));
+
+        // Type mis match problem and multi input problem
+        let incOne = (x) => x +1;
+        let double = (x) => x * 2;
+        let add = (x,y=0) => x + y;
+
+        // multi input problem
+        // newFun = compose(add,double,incOne);
+        
+        // type mismatch problem
+        newFun = compose(add,toUpper,incOne);
+        console.log(newFun(30));
+
+    </script>
+</html>

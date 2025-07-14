@@ -1,0 +1,49 @@
+<html>
+
+    <script src="./funlib.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.0/ramda.min.js"></script>
+    
+    <script>
+        let data = 1;
+        let data2 = data + 1;
+
+        // Container => Wrapper => Functor
+        const Container = (value)=> ({
+            value,
+            map: (fn) => Container(fn(value))
+        });
+
+        Container.of = Container;
+        const inc = (x) => x + 1;
+        const double = (x) => x * 2;
+
+        let counter = Container.of(2);
+        let counter2 = counter.map(inc);
+        let counter3 = counter2.map(double);
+
+        let counter4 = Container.of(1).map(inc).map(double);
+        console.log("Counter4", counter4.value);
+
+        console.log("Container", counter.value);
+        console.log("Container2", counter2.value);
+        console.log("Counter3", counter3.value);
+
+        // Law 1 
+        let identity = (x) => x;
+        let result = counter.map(identity);
+        console.log("Counter", counter.value , "result", result.value); // must be the same
+
+        // Law 2 
+        // let newFun = R.pipe(inc,double);
+        let newFun = pipe(inc,double);
+
+        let result2 = counter.map(newFun);
+        let result3 = counter.map(inc).map(double);
+        console.log("result2", result2.value , "result 3", result3.value); // must be the same 
+
+        // Law ၂ ခုကိုပြေလည်တဲ့ map function ပါရင် Functor
+        
+
+    </script>
+</html>

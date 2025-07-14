@@ -1,0 +1,30 @@
+<html>
+    <script>
+        let arr = [1,2,3,4,5];
+        let arr2 = arr.map(x=> x * 2);
+
+        console.log("arr2", arr2);
+
+        console.log("arr", arr);
+        let total = arr.reduce((a,b)=>{
+            console.log("A",a,"B",b);
+            console.log(a+b);
+            return a+b;
+        });
+
+        console.log("Total", total);
+
+        let arr3 = arr.reduce((result,item)=>{
+            return result.concat(item*2);
+        },[]);
+
+        console.log("arr3", arr3);
+
+        let arr4 = arr.reduce((result,item)=>{
+            return [...result,item*2];
+        },[]);
+
+        console.log("arr4", arr4);
+
+    </script>
+</html>

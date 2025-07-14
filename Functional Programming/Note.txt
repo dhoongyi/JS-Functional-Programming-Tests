@@ -1,0 +1,16 @@
+Functional Programming 
+    2 Piller 
+        Referencial transparency - Build Using pure function 
+        Composition              - Combind the small function to become a bigger function 
+
+
+Object Oriented Programming
+    3 Piller 
+        Encapsulation
+        Inheritence
+        Polymorphysm 
+
+Composition  
+    funB(funA); --> function A 's output is input for function B
+    must be single input => single output
+    must be type match 

@@ -1,0 +1,39 @@
+<html>
+    <script>
+        let students = [
+            {
+                name :"Maung Ba",
+                age :20
+            },
+            {
+                name :"Tin Mya",
+                age : 40
+            },
+            {
+                name :"Aung Naing",
+                age :20   
+            },
+            {
+                name :"Win Myine",
+                age :36
+            },
+            {
+                name :"Maung Thein",
+                age :40
+            }
+        ];
+
+        students.sort((stuA,stuB)=>stuA.age-stuB.age);
+        console.log("Ascending",JSON.stringify(students));
+        students.sort((a,b)=>b.age-a.age);
+        console.log("Descend",JSON.stringify(students));
+
+        students.sort((stuA,stuB)=>{
+            if(stuA.age - stuB.age == 0){
+                return stuA.name.localeCompare(stuB.name);
+            }
+            return stuA.age - stuB.age;
+        });
+        console.log(JSON.stringify(students));
+    </script>
+</html>

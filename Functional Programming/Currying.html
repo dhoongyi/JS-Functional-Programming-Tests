@@ -1,0 +1,23 @@
+<html>
+    <script>
+        function pipe(...fns)
+        {
+            return function(x){
+                return fns.reduce((input,fn)=> fn(input),x);
+            }
+        }
+
+        function add(x){
+            return function(y){
+                return x + y;
+            }
+        }
+        let addOne = add(1);
+        console.log(addOne(1));
+        console.log(addOne(2));
+        let double = x => x * 2;
+
+        let result = compose(add,addOne,double);
+        console.log(result(30));
+    </script>
+</html>

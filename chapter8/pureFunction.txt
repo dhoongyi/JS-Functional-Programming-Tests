@@ -1,0 +1,11 @@
+pure function
+    function with no side effect
+
+same input -> same output
+
+
+parameter လက်ခံ 
+return the computed value from parameter
+
+immutable ဖြစ် 
+paramter ကို ပြင်လို့မရ

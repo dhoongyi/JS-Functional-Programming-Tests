@@ -1,0 +1,52 @@
+<html>
+    <script>
+        
+        /*
+        let stack = {
+            items : [],
+            push(x){
+                this.items.push(x)
+            },
+            pop(){
+                return this.items.pop()
+            }
+        };
+        stack.push(20);
+        stack.push(30);
+        console.log(stack.items);
+        console.log("stack.pop()",stack.pop());
+        */
+
+        // we will make items[] to be private by using closure 
+        function Stack(){
+            let items = []
+
+            function push(x){
+                items.push(x);
+            }
+
+            function pop(){
+                return items.pop();
+            }
+
+            function read(){
+                return items;
+            }
+
+            return {
+                // items,
+                push,
+                pop,
+                read
+            }
+        }
+
+        let s1 = Stack();
+
+        s1.push(20);
+        s1.push(30);
+        console.log("read",s1.read());
+        console.log("Pop",s1.pop());
+        console.log("Pop",s1.pop());
+    </script>
+</html>

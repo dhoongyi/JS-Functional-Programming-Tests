@@ -1,0 +1,27 @@
+<html>
+    <script>
+        let arr = [10,20,30,40,50];
+
+        let a = arr[0];
+        let b = arr[1];
+
+        console.log("A", a);
+        console.log("B", b);
+
+        let [c,d,...f] = arr;  // array destructuring
+        console.log("C", c);
+        console.log("D", d);
+        console.log("F", f);
+
+        let g = "Value of G";
+        let h = "Value of H";
+
+        [g,h] = [h,g];  // Value swapping
+        console.log("G ",g);
+        console.log("H ",h);
+
+        let [first, ...last] = "Hello";
+        console.log("first", first);
+        console.log("last", last);
+    </script>
+</html>

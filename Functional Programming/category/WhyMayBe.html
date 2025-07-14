@@ -1,0 +1,37 @@
+<html>
+
+    <script src="./funlib.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.0/ramda.min.js"></script>
+    
+    <script>
+        function toUpper(str)
+        {
+            return str.toUpperCase();
+        }
+
+        function appendHi(str)
+        {
+            return str + "Hi";
+        }
+
+        let newFun = R.pipe(toUpper,appendHi);
+        let result = newFun("hello");
+        console.log("result ", result);
+
+        // let data = undefined;
+        // result = newFun(data ? data : "Hello");
+        // console.log("result ", result);
+
+
+        let MayBe = (value) => ({
+            value,
+            map : (fn) => MayBe(fn(value)),
+            isEmpty : value === null || value === undefined
+        });
+
+        MayBe.of = MayBe;
+        let data = MayBe.of(null);
+        console.log("MayBe", data.isEmpty);
+    </script>
+</html>

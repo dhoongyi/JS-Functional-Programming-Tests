@@ -1,0 +1,59 @@
+<html>
+
+    <script src="./funlib.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.0/ramda.min.js"></script>
+    
+    <script>
+        function toUpper(str)
+        {
+            return str.toUpperCase();
+        }
+
+        function appendHi(str)
+        {
+            return str + "Hi";
+        }
+
+        // let data = undefined;
+        // result = newFun(data ? data : "Hello");
+        // console.log("result ", result);
+
+
+        let MayBe = validationFn => value => ({
+            value,
+            map(fn) {
+                return validationFn(value) ?
+                       MayBe.of(validationFn)(null) :
+                       MayBe.of(validationFn)(fn(value))
+            },
+            isEmpty : () => value === null || value === undefined,
+            orElse(defaultValue){
+                return validationFn(value) ?
+                       MayBe.of(validationFn)(defaultValue) : 
+                       this
+            }
+        });
+
+        MayBe.of = MayBe;
+        // let result = MayBe.of(null);
+        // console.log("MayBe", result.isEmpty);
+
+        let isEmpty = (x) => x === undefined || x === null;
+
+        // let result2 = MayBe.of(isEmpty)("Hello")
+        //                     .map(toUpper)
+        //                     .map(appendHi)
+        //                     .orElse("Empty String");
+        // console.log("result2", result2.value);
+
+        let mayBeWithValidation = MayBe.of(isEmpty);
+        let result = mayBeWithValidation(null)
+                                .map(toUpper)
+                                .map(appendHi)
+                                .orElse("Empty String");
+        console.log("Result ", result.value);
+    </script>
+
+
+</html>

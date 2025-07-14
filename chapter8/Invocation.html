@@ -1,0 +1,21 @@
+<html>
+    <script>
+        function hello(){
+            console.log("Hello");
+        }
+        hello();  // Function Invocation
+
+        let obj = {
+            value : 100,
+            display(){
+                // this = current object
+                console.log("this",this);
+                console.log("value",this.value);
+            }
+        }
+
+        obj.display(); // method Invocation
+
+        let date = new Date(); // constructor Invocations
+    </script>
+</html>

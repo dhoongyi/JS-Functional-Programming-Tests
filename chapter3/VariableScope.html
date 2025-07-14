@@ -1,0 +1,17 @@
+<html>
+    <script>
+        // console.log("b",b);  // hoisting
+        function hello(){
+            console.log("hello");
+            {
+                var b = 20; // function scope
+                let a = 10; // block scope
+                console.log("A",a);
+            }
+            console.log("Out of block A", a);
+            console.log("Out of block b ", b);
+        }
+
+        hello();
+    </script>
+</html>

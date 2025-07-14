@@ -1,0 +1,31 @@
+<html>
+    <script>
+        function inc(x){
+            x++;
+        }
+
+        let a = 10;
+        inc(a);
+        console.log("A",a);
+
+        function objInc(obj){
+            obj.value++;
+        }
+
+        let obj = {
+            value : 100
+        }
+
+        objInc(obj);
+        console.log("Value ",obj.value);
+
+        function objInc2(obj2){
+            obj2 = {
+                value : 1000
+            }
+        }
+
+        objInc2(obj);
+        console.log("Obj.value",obj.value);
+    </script>
+</html>

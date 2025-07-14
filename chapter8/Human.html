@@ -1,0 +1,21 @@
+<html>
+    <script>
+        // Constructor Invocation Example 
+        function Human(name,age){
+            this.name = name;
+            this.age = age;
+            this.display = function(){
+                console.log("Name ",this.name," Age ", this.age);
+            }
+        }
+
+        let h1 = new Human("Dhoon Gyi",23);
+        let h2 = new Human("Moe Moe",22);
+
+        console.log(h1);
+        console.log(h2);
+
+        h1.display();
+        h2.display();
+    </script>
+</html>

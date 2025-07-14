@@ -1,0 +1,36 @@
+<html>
+    <script>
+        // HOF 
+        // accept a function or return a function 
+
+        // Logging
+
+        function hello(name,city)
+        {
+            // console.log("hello", name);
+            console.log("Welcome to YGN ",name ,"You are now in ",city);
+            return city;
+        }
+
+        function hi(){
+            console.log("Hi");
+        }
+
+        function logger(fn){
+            return function(...rest){
+                console.log(fn.name," was called");
+                let retValue = fn(...rest);
+                console.log(fn.name," was finished");
+                return retValue;
+            }
+        }
+
+        hello = logger(hello);
+        hi = logger(hi);
+
+        console.log(hello("Dhoon Gyi","Yangon"));
+        hello("Dhoon Wai Yan Min", "Mandalay");
+        hi();
+        hi();
+    </script>
+</html>

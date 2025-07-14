@@ -1,0 +1,31 @@
+<html>
+    <script>
+        // top k frequence 
+        let nums = [1,2,1,1,2,2,2,3,3,3,3,4] , k = 2;
+
+        let group = {};
+
+        for(const item of nums){
+            if(group[item])
+            {
+                group[item]++;
+            }
+            else
+            {
+                group[item] = 1;
+            }
+        }
+
+        console.log("group" , group);
+
+        let arr = Object.entries(group);
+        console.log("arr", arr);
+
+        arr.sort( (a,b) => b[1] - a[1]);
+        console.log("arr", arr);
+
+        let tops = arr.map(a=> a[0]);
+        console.log(tops);
+        console.log("tops", tops.slice(0,k));
+    </script>
+</html>

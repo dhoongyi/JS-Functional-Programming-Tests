@@ -1,0 +1,49 @@
+<html>
+    <script src="./funlib.js"></script>
+    <script>
+        // top k frequence 
+        let nums = [1,2,1,1,2,2,2,3,3,3,3,4] , k = 2;
+
+        function findFrequency(arr){
+            return arr.reduce((group,item)=>{
+                 if(group[item])
+                {
+                    group[item]++;
+                }
+                else
+                {
+                    group[item] = 1;
+                }
+                return group;
+            },{});
+        }
+
+
+        let sort = demethodize(Array.prototype.sort);
+        let sort2 = reverse(sort);
+        // sort2 = curry(sort2);
+        let findFrequency2 = pipe(findFrequency,
+                                Object.entries,
+                                // sort2((a,b) => b[1] - a[1])(nums)
+                                );
+
+        let arr = findFrequency2(nums);
+        console.log("arr", arr);
+
+        arr.sort((a,b) => b[1] - a[1]);
+        console.log(arr);
+        arr = arr.map((x) => x[0]);
+        console.log(arr);
+        console.log("Top K frequence ", arr.slice(0,k));
+        
+        // console.log("Sort", sort2((a,b)=> b - a, [1,2,3]));
+
+
+        // arr = sort2((a,b)=> b[1] - a[1],arr);
+        // console.log("Sorted Array ", arr);
+
+        // let tops = arr.map(a=> a[0]);
+        // console.log(tops);
+        // console.log("tops", tops.slice(0,k));
+    </script>
+</html>

@@ -1,0 +1,18 @@
+<html>
+    <script>
+        function add(x,y){
+            return x + y;
+        }
+
+        let add2 = (x,y)=>x+y;
+
+        let another = (x,y)=>{
+            console.log("this inside the arrow functino",this);
+            console.log("x",x,"y",y);
+            return x + y;
+        }
+
+        console.log(add2(20,30));
+        console.log("another", another(20,30));
+    </script>
+</html>

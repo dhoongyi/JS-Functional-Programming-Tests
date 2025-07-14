@@ -1,0 +1,26 @@
+<html>
+    <script> 
+        const appendHi = (x) => x + "Hi";
+        const toUpper = (x) => x.toUpperCase();
+        const appendGreet = (x) => x + "Greet";
+
+        function appendHiAndToUpper(x){
+            return toUpper(appendHi(x));
+        }
+
+        // Imperative Way
+        console.log("Append Hi and to Upper", appendHiAndToUpper("Hello"));
+
+
+        //Functional Programming Way 
+        function pipe(...fns){
+            return function(x){
+                return fns.reduce((input,fn) => fn(input), x);
+            }
+        }
+
+        let newFun = pipe(toUpper,appendHi,appendGreet);
+        console.log("New Fun", newFun("Hello"));
+
+    </script>
+</html>

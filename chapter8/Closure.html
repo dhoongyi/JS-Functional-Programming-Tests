@@ -1,0 +1,20 @@
+<html>
+    <script>
+        function unique()
+        {
+            let counter = 0;
+            return function(){
+                console.log("Inner function");
+                return counter++;
+            }
+        }
+
+        let nextId = unique();
+        console.log("Next Id",nextId());
+        console.log("Next Id",nextId());
+        console.log("Next Id",nextId());
+
+
+        // Inner function use outer function's variable
+    </script>
+</html>

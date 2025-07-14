@@ -1,0 +1,31 @@
+<html>
+    <script>
+
+        let done = false;
+
+        function payment(){
+            if(!done){
+                console.log("Payment Done");
+                done = true;
+            }
+        }
+
+        payment();
+        payment();
+
+        let isOrderDone = false;
+
+        function Order()
+        {
+            if(!isOrderDone)
+            {
+                console.log("Order Done");
+                isOrderDone = true;
+            }
+        }
+
+        Order();
+        Order();
+
+    </script>
+</html>
