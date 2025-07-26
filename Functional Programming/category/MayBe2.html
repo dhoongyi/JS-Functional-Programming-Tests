@@ -20,17 +20,16 @@
         // console.log("result ", result);
 
 
-        let MayBe = validationFn => value => ({
+        let MayBe = isInvalid => value => ({
             value,
             map(fn) {
-                return validationFn(value) ?
-                       MayBe.of(validationFn)(null) :
-                       MayBe.of(validationFn)(fn(value))
+                return isInvalid(value) ?
+                       MayBe.of(isInvalid)(null) :
+                       MayBe.of(isInvalid)(fn(value))
             },
-            isEmpty : () => value === null || value === undefined,
             orElse(defaultValue){
-                return validationFn(value) ?
-                       MayBe.of(validationFn)(defaultValue) : 
+                return isInvalid(value) ?
+                       MayBe.of(isInvalid)(defaultValue) : 
                        this
             }
         });
@@ -41,11 +40,11 @@
 
         let isEmpty = (x) => x === undefined || x === null;
 
-        // let result2 = MayBe.of(isEmpty)("Hello")
-        //                     .map(toUpper)
-        //                     .map(appendHi)
-        //                     .orElse("Empty String");
-        // console.log("result2", result2.value);
+        let result2 = MayBe.of(isEmpty)("Hello")
+                            .map(toUpper)
+                            .map(appendHi)
+                            .orElse("Empty String");
+        console.log("result2", result2.value);
 
         let mayBeWithValidation = MayBe.of(isEmpty);
         let result = mayBeWithValidation(null)

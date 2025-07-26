@@ -1,0 +1,59 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+        class Human
+        {
+            name;
+            age;
+            constructor(name,age)
+            {
+                this.name = name;
+                this.age = age;
+            }
+
+            set age(newAge)
+            {
+                if(newAge > 0 && newAge < 100)
+                {
+                    this.age = newAge;
+                }
+            }
+
+            display()
+            {
+                console.log("Name ", this.name, "Age", this.age);
+            }
+
+            work()
+            {
+                console.log(this.name, "is working");
+            }
+        }
+
+        class Teacher extends Human
+        {
+            subject;
+            constructor(name,age,subject)
+            {
+                super(name,age);
+                this.subject = subject;
+                console.log("Teacher Constructor");
+            }
+
+            work(){
+                super.work();
+                console.log(this.name, "is teaching", this.subject);
+            }
+        }
+
+        let t1 = new Teacher("TK",40,"Maths");
+        t1.display();
+        t1.work();
+
+        console.log("t1 instanceof Human", t1 instanceof Human);
+        console.log("t1 instanceof Teacher", t1 instanceof Teacher);
+        console.log("t1 instanceof Object", t1 instanceof Object);
+    </script>
+</html>

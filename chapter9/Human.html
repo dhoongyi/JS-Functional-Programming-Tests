@@ -1,0 +1,26 @@
+<html>
+    <script>
+        class Human
+        {
+            name;
+            age;
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+            }
+            display(){
+                console.log("Name ", this.name, "Age ",this.age);
+            }
+        }
+
+        let h1 = new Human("Dhoon Gyi",23);
+        let h2 = new Human("Kyaw Kyaw",24);
+        console.log("h1", h1);
+        h1.display();
+        h2.display();
+
+        console.log("h1 is instance of object", h1 instanceof Object);
+        console.log("h1 is instance of Human", h1 instanceof Human);
+        console.log("h1 is instance of Date", h1 instanceof Date);
+    </script>
+</html>

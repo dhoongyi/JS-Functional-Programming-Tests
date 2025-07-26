@@ -1,0 +1,25 @@
+<html>
+    <script>
+        class MySet
+        {
+            items = [];
+            constructor(data)
+            {
+                this.items = [];
+                for(const item of data){
+                    if(!this.items.includes(data)){
+                        this.items.push(data);
+                    }
+                }
+            }
+
+            get size()
+            {
+                return this.items.length;
+            }
+        }
+
+        let s1 = new MySet([1,1,2,2,3,3,4,4,5]);
+        console.log(s1.size);
+    </script>
+</html>

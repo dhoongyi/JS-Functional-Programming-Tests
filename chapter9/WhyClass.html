@@ -1,0 +1,50 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+        let stack1 = {
+            items : [],
+            push(item){
+                this.items.push(item)
+            },
+            pop(){
+                return this.items.pop();
+            }
+        }
+
+        stack1.push(100);
+        stack1.push(200);
+        console.log("pop", stack1.pop());
+        console.log("pop",stack1.pop());
+
+
+        // If you want stack2 , you need to write new object 
+        // this is the problem  => object literal is good for only one time use
+
+        class Stack
+        {
+            // items = [];
+            items;
+            constructor()
+            {
+                console.log("Stack Constructor");
+                this.items = [];
+            }
+            push(item){
+                this.items.push(item);
+            }
+            pop(){
+                return this.items.pop();
+            }
+        }
+
+        let s2 = new Stack();
+        s2.push(100);
+        s2.push(200);
+        console.log(s2.pop());
+        let s3 = new Stack();
+        s3.push(300);
+        console.log("S3", s3.pop());
+    </script>
+</html>

@@ -1,0 +1,16 @@
+<html>
+    <script>
+        let set = new Set([1,2,3,2,3,1]);
+        set.add(10);
+        set.add(1);
+        console.log("Set", set);
+        set.delete(1);
+        console.log("Set", set, "Size", set.size);
+        set.clear();
+        console.log("Set", set, "Size", set.size);
+
+        let set2 = new Set("apple");
+        console.log("Set2", set2);
+        console.log("Set2.size", set2.size);
+    </script>
+</html>

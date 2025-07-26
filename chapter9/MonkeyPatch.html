@@ -1,0 +1,16 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+
+        // Language ထဲမှာ မရှိတဲ့ အရာကို ကိုယ်တိုင်ထပ်ဖြည့်ချင်ရင် သုံးတယ်
+        String.prototype.contains = function(str)
+        {
+            return this.indexOf(str) != -1;
+        }
+
+        let str = "hello";
+        console.log("Str.contains", str.contains("hell"));
+    </script>
+</html>

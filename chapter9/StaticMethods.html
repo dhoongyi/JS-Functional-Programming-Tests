@@ -1,0 +1,27 @@
+<html>
+    <script>
+        class Utils
+        {
+            static counter =0;
+            data;
+            constructor(data){
+                this.data = data;
+                Utils.counter ++;
+            }
+            static add(a,b){
+                // console.log("Data", this.data);   // static method can't use this data
+                return a + b;
+            }
+        }
+
+        let result = Utils.add(10,20);
+        console.log("Result ", result);
+
+        let obj = new Utils();
+        // console.log("addition", obj.add(10,20));  // add function can not use from object
+        console.log("addition ", Utils.add(10,20));
+
+        let obj2 = new Utils();
+        console.log("counter", Utils.counter);
+    </script>
+</html>

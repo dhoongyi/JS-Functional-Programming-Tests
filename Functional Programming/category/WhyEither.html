@@ -1,0 +1,43 @@
+<html>
+
+    <script src="./funlib.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.0/ramda.min.js"></script>
+    
+    <script>
+        function div(a,b)
+        {
+            if(isNaN(a) || isNaN(b))
+            {
+                throw new Error("A or B is invalid");
+            }
+            else
+            {
+                return a/b;
+            }
+        }
+
+        function div2(a,b)
+        {
+            setTimeout(()=>{
+                if(isNaN(a) || isNaN(b))
+                {
+                    throw new Error("A or B is invalid");
+                }
+                else
+                {
+                    return a/b;
+                }
+            },1000);
+        }
+
+        try{
+            let result = div2(0,NaN);
+            console.log("result", result);
+        }catch(e){
+            console.log("error found", e);
+        }
+
+        console.log("end")
+    </script>
+</html>

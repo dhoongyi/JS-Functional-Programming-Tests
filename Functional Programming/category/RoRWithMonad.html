@@ -1,0 +1,56 @@
+<html>
+
+    <script src="./funlib.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.0/ramda.min.js"></script>
+    
+    <script>
+        let str = "apple=2;orange=13;banana=4";
+
+        function parse(csvStr){
+            if(csvStr === null || csvStr === undefined || csvStr === ""){
+                return Left.of("Invalid String");
+            }
+            else{
+                let items = csvStr.split(";");
+                let arr = [];
+
+                for(const item of items){
+                    let [key,val] = item.split("=");
+                    arr.push({key,val : parseInt(val)});
+                }
+                return Right.of(arr);
+            }
+        }
+
+        function maxItem(arr){
+            if(arr.length === 0) {
+                return Left.of("Empty Array");
+            }else{
+                let result = arr.reduce((a,b)=> {
+                    return a.val > b.val ? a : b;
+                },{
+                    key : "Dummy",
+                    val : Number.MIN_VALUE
+                });
+                return Right.of(result);
+            }
+        
+        }
+
+        function print(item){
+            console.log("Item ", item);
+            console.log("Name", item.key, "Value ", item.val);
+            return item;
+        }
+        parse(str)
+            // .map(maxItem)
+            // .flat()
+            .flatMap(maxItem)
+            .map(print)
+            .matchWith({
+                left : (value) => console.log("Error Case", value),
+                right : (value) => console.log("Parse Success Case", value)
+            });
+    </script>
+</html>

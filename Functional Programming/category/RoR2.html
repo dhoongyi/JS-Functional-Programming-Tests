@@ -1,0 +1,80 @@
+<html>
+
+    <script src="./funlib.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.0/ramda.min.js"></script>
+    
+    <script>
+        let str = "apple=2;orange=13;banana=4";
+
+        // function parse(csvStr){
+        //     if(csvStr === null || csvStr === undefined || csvStr === ""){
+        //         throw new Error("Invalid String");
+        //     }
+        //     else{
+        //         let items = csvStr.split(";");
+        //         let arr = [];
+
+        //         for(const item of items){
+        //             let [key,val] = item.split("=");
+        //             arr.push({key,val : parseInt(val)});
+        //         }
+        //         return arr;
+        //     }
+        // }
+
+        // function maxItem(arr){
+        //     return arr.reduce((a,b)=> {
+        //         return a.val > b.val ? a : b;
+        //     },{
+        //         key : "Dummy",
+        //         val : Number.MIN_VALUE
+        //     });
+        // }
+
+        // // console.log("Parse ", parse(str));
+        // // let arr = parse(str);
+        // // let max = maxItem(arr);
+        // // console.log("Max ", max);
+
+        // try{
+        //     let arr = parse(str);
+        //     let max = maxItem(arr);
+        //     console.log("max value ", max);
+        // }catch(e){
+        //     console.log("Error", e);
+        // }
+
+        function parse(csvStr){
+            if(csvStr === null || csvStr === undefined || csvStr === ""){
+                return Left.of("Invalid String");
+            }
+            else{
+                let items = csvStr.split(";");
+                let arr = [];
+
+                for(const item of items){
+                    let [key,val] = item.split("=");
+                    arr.push({key,val : parseInt(val)});
+                }
+                return Right.of(arr);
+            }
+        }
+
+        function maxItem(arr){
+            return arr.reduce((a,b)=> {
+                return a.val > b.val ? a : b;
+            },{
+                key : "Dummy",
+                val : Number.MIN_VALUE
+            });
+        }
+
+        parse(str)
+            .map(maxItem)
+            .matchWith({
+                left : (value) => console.log("Error Case", value),
+                right : (value) => console.log("Parse Success Case", value)
+            });
+    </script>
+</html>

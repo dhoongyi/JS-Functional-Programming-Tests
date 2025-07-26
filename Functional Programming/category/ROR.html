@@ -1,0 +1,30 @@
+<html>
+
+    <script src="./funlib.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.0/ramda.min.js"></script>
+    
+    <script>
+        function divImperative(a,b){
+            if(isNaN(a) || isNaN(b)){
+                throw new Error("A or B is NaN");
+            }
+            else{
+                return a/b;
+            }
+        }
+
+        function process(a,b){
+            let result;
+            try{
+                result = divImperative(a,b);
+                // console.log("result ", result);
+            }catch(e){
+                result = 0;
+            }
+            return result * 2;
+        }
+
+        console.log("result = ",process(NaN,2));
+    </script>
+</html>

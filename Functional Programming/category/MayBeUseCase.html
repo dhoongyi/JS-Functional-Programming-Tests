@@ -1,0 +1,61 @@
+<html>
+     <script src="./funlib.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.0/ramda.min.js"></script>
+    <script>
+        let MayBe = (value) => ({
+            value,
+            map(fn){
+                return this.isEmpty() ? MayBe.of(null): MayBe(fn(value));
+            },
+            isEmpty : () => value === null || value === undefined,
+            orElse(defaultValue){
+                return this.isEmpty() ? MayBe.of(defaultValue) : this;
+            }
+        });
+
+        MayBe.of = MayBe;
+        let employees = {
+            1 : {
+                name : "Emp 1",
+            },
+            2 : {
+                name : "Emp 2",
+                supervisor : 1
+            },
+            3 : {
+                name : "Emp 3",
+                supervisor : 1,
+            },
+            4 : {
+                name : "Emp 4",
+                supervisor : 3
+            }
+        }
+
+        function getSupervisorName(empId){
+            let emp = employees[empId];
+            if(emp)
+            {
+                if(emp.supervisor){
+                    let supervisor = employees[emp.supervisor];
+                    if(supervisor){
+                        return supervisor.name;
+                    }
+                }
+            }
+        }
+
+        const log = R.tap(console.log);
+
+        function getSupervisorNameFp(empId){
+            return MayBe.of(employees[empId])
+                            .map( emp => emp.supervisor)
+                            // .map(log)
+                            .map( supervisorId => employees[supervisorId])
+                            .map(supervisor=> supervisor.name);
+        }        
+        console.log("Supervisor FP", getSupervisorNameFp(4).value);
+        console.log("Supervisor", getSupervisorName(2));
+    </script>
+</html>

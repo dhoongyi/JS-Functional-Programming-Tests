@@ -40,3 +40,41 @@ function reverse(fn){
         return fn(...rest);
     }
 }
+
+const Left = (value) => ({
+            valueOf(){
+                return value;
+            },
+            map(fn){
+                return Left.of(fn(value));
+            },
+            flatMap(fn){
+                return fn(value);
+            },
+            flat(){
+                return value; 
+            },
+            matchWith(context){
+                return context.left(value);
+            }
+        });
+Left.of = Left;
+        
+const Right = (value) => ({
+            valueOf(){
+                return value;
+            },
+            map(fn){
+                return Right.of(fn(value));
+            },
+            flatMap(fn){
+                return fn(value);
+            },
+            flat(){
+                return value;
+            },
+            matchWith(context){
+                return context.right(value);
+            }
+        });
+Right.of = Right;
