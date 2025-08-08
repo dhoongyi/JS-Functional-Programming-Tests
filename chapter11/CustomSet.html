@@ -2,14 +2,11 @@
     <script>
         class MySet
         {
-            items = [];
             constructor(data)
             {
                 this.items = [];
                 for(const item of data){
-                    if(!this.items.includes(data)){
-                        this.items.push(data);
-                    }
+                    this.add(item);
                 }
             }
 
@@ -17,9 +14,38 @@
             {
                 return this.items.length;
             }
+
+            add(item){
+                if(!this.items.includes(item)){
+                    this.items.push(item);
+                }
+            }
+
+            // delete(item){
+            //     return this.items = this.items.filter(i => i !== item);
+            // }
+
+            delete(item){
+                let index = this.items.indexOf(item);
+                if(index !== -1){
+                    this.items = this.items.splice(index,1);
+                }
+            }
+
+            has(item){
+                return this.items.includes(item);
+            }
+
+            clear(){
+                this.items = [];
+            }
         }
 
-        let s1 = new MySet([1,1,2,2,3,3,4,4,5]);
+        let s1 = new MySet([1,1,2,2,3,3,4,4]);
+        s1.add(5);
+        s1.delete(3);
+        console.log("Set", s1);
+        console.log("Has", s1.has(2));
         console.log(s1.size);
     </script>
 </html>

@@ -1,0 +1,24 @@
+<html>
+    <body>
+        <button id="btnAllocate" type="button">Allocate</button>
+    </body>
+    <script>
+        let arr;
+        document.getElementById("btnAllocate")
+                .addEventListener("click", function(){
+                    console.log("Allocated");
+                    // arr = new Array(100000);  // Normal Array Has Bigger Size
+                    // arr = new Int8Array(100000);
+                    arr = new Uint8Array(100000);
+
+                    arr[0] = 20;
+                    console.log("Arr[0]", arr[0]);
+                });
+    </script>
+</html>
+
+<!-- Dynamic Type 
+    variable can be 
+        object number string boolean 
+int a; // 4 byte 
+dynamic data type // at least 16 byte  -->

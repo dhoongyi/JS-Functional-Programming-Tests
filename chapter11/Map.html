@@ -1,0 +1,42 @@
+<html>
+    <script>
+        let map = new Map([
+            ["id",1],
+            ["name", "Dhoon"]
+        ]);
+
+        console.log("map ",map);
+
+        let obj = {
+            name : "Dhoon Wai Yan Min",
+            age : 23
+        };
+        let m2 = new Map(Object.entries(obj));
+        // let m2 = new Map(obj);
+        console.log("m2", m2);
+        m2.set("name" , "Dummy");
+        m2.set("address", "somewhere");
+        console.log(m2);
+
+        console.log("size", m2.size);
+        console.log("has name", m2.has("name"));
+        console.log("has another", m2.has("another"));
+
+        // m2.clear();
+        console.log("keys", m2.keys());
+        console.log("value", m2.values());
+        console.log("entries", m2.entries());
+
+        for(const [key,val] of m2.entries()){
+            console.log("key ", key , "value ", val);
+        }
+
+        m2.forEach((val,key)=>{
+            console.log("value ", val, "key", key);
+        });
+
+        m2.delete("address");
+        console.log("m2", m2);
+
+    </script>
+</html>

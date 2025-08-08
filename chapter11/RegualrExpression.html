@@ -1,0 +1,45 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+        let str = "Hello";
+        // $ end with script
+        let pattern = /script$/i;
+        console.log(`${pattern} of VBscript`, pattern.test("VBScript"));
+        console.log(`${pattern} of JavaScript`, pattern.test("Javascript"));
+        console.log(`${pattern} of Java`, pattern.test("Java")); 
+
+        // ^ start with Java
+        pattern = /^Java/i;
+        console.log(`${pattern} of Javascript`, pattern.test("Javascript"));
+        console.log(`${pattern} of Java`, pattern.test("Java"));
+        console.log(`${pattern} of Python`, pattern.test("Python"));
+
+        // starting with (.) any character
+        pattern = /^./i;
+        console.log(`${pattern} of Javascript`, pattern.test("Javascript"));
+        console.log(`${pattern} of Java`, pattern.test("Java"));
+        console.log(`${pattern} of Python`, pattern.test("Python"));
+
+        // * is 0 or more  // can accept any count of 1 even 0 counts of 1
+        pattern = /^1*/i;
+        console.log(`${pattern} of 111`, pattern.test("111"));
+        console.log(`${pattern} of 000`, pattern.test("000"));
+        console.log(`${pattern} of 045`, pattern.test("045"));
+
+        // + one or more -- starting with one or more 1 and two or more 2
+        // in the following pattern starting with 1 and that 1 must be followed by 2
+        pattern = /^1+2+/i;
+        console.log(`${pattern} of 112200`, pattern.test("112200"));
+        console.log(`${pattern} of 132`, pattern.test("132"));
+        console.log(`${pattern} of 1111`, pattern.test("1111"));
+
+        // ? is 0 or one 
+        pattern = /^1?2?$/i;
+        console.log(`${pattern} of 112200`, pattern.test("112200"));
+        console.log(`${pattern} of 132`, pattern.test("132"));
+        console.log(`${pattern} of 1111`, pattern.test("1111"));
+
+    </script>
+</html>
